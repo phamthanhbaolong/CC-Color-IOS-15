@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.bro.ccslidercolors</string>
+			<key>key</key>
+			<string>enableBrightness</string>
+			<key>label</key>
+			<string>Màu biểu tượng độ sáng</string>
+			<key>sublabel</key>
+			<string>Thêm màu cho biểu tượng thanh trượt độ sáng</string>
+			<key>PostNotification</key>
+			<string>com.bro.ccslidercolors/ReloadPrefs</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>cellClass</key>
+			<string>SparkColourPickerCell</string>
+			<key>libsparkcolourpicker</key>
+			<dict>
+				<key>defaults</key>
+				<string>com.bro.ccslidercolors</string>
+				<key>fallback</key>
+				<string>#FFD60A</string>
+				<key>alpha</key>
+				<true/>
+			</dict>
+			<key>label</key>
+			<string>Màu sắc độ sáng</string>
+			<key>key</key>
+			<string>brightnessColor</string>
+			<key>PostNotification</key>
+			<string>com.bro.ccslidercolors/ReloadPrefs</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.bro.ccslidercolors</string>
+			<key>key</key>
+			<string>enableVolume</string>
+			<key>label</key>
+			<string>Màu biểu tượng âm lượng</string>
+			<key>sublabel</key>
+			<string>Thêm màu cho biểu tượng thanh trượt âm lượng</string>
+			<key>PostNotification</key>
+			<string>com.bro.ccslidercolors/ReloadPrefs</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>cellClass</key>
+			<string>SparkColourPickerCell</string>
+			<key>libsparkcolourpicker</key>
+			<dict>
+				<key>defaults</key>
+				<string>com.bro.ccslidercolors</string>
+				<key>fallback</key>
+				<string>#0A84FF</string>
+				<key>alpha</key>
+				<true/>
+			</dict>
+			<key>label</key>
+			<string>Màu sắc âm lượng</string>
+			<key>key</key>
+			<string>volumeColor</string>
+			<key>PostNotification</key>
+			<string>com.bro.ccslidercolors/ReloadPrefs</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>CCSliderColors</string>
+</dict>
+</plist>

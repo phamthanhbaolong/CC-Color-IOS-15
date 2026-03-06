@@ -1,0 +1,9 @@
+Package: com.pl.ccbrightnesscolor
+Name: CCBrightnessColor
+Depends: mobilesubstrate
+Version: 1.0.0
+Architecture: iphoneos-arm
+Description: Đổi màu icon thanh độ sáng Control Center
+Maintainer: PHAMLONGIT
+Author: PHAMLONGIT
+Section: Tweaks

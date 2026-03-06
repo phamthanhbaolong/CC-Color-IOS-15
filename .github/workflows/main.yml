@@ -1,0 +1,46 @@
+name: Build CCSliderColors Tweak
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Lấy mã nguồn
+        uses: actions/checkout@v4
+
+      - name: Cài đặt công cụ phụ trợ (ldid, xz)
+        run: brew install ldid xz
+
+      - name: Cài đặt Theos
+        uses: actions/checkout@v4
+        with:
+          repository: theos/theos
+          path: theos
+          submodules: recursive
+
+      - name: Tải iOS SDK
+        run: |
+          git clone https://github.com/theos/sdks.git temp_sdks
+          mv temp_sdks/*.sdk theos/sdks/
+
+      - name: Tải thư viện libsparkcolourpicker cho máy chủ
+        run: |
+          mkdir -p theos/include/SparkColourPicker
+          git clone https://github.com/SparkDev97/libsparkcolourpicker.git temp_spark
+          cp temp_spark/*.h theos/include/SparkColourPicker/
+          # Tạo file thư viện ảo để máy chủ không báo lỗi khi build
+          touch theos/lib/libsparkcolourpicker.dylib 
+
+      - name: Build thành file .deb
+        run: |
+          export THEOS=${{ github.workspace }}/theos
+          make package FINALPACKAGE=1 TARGET="iphone:clang:14.5:15.0" SYSROOT="$THEOS/sdks/iPhoneOS14.5.sdk"
+
+      - name: Đăng tải file .deb
+        uses: actions/upload-artifact@v4
+        with:
+          name: Tweak-Deb-File
+          path: packages/*.deb

@@ -6,15 +6,15 @@ INSTALL_TARGET_PROCESSES = SpringBoard
 
 include $(THEOS)/makefiles/common.mk
 
-TWEAK_NAME = CC-Color-IOS-15.plist
+# Chỉ để tên gốc, tuyệt đối không có chữ .plist ở đây
+TWEAK_NAME = CC-Color-IOS-15
 
-CCSliderColors_FILES = Tweak.xm
-CCSliderColors_CFLAGS = -fobjc-arc
-# Báo cho hệ thống biết chúng ta dùng thư viện màu
-CCSliderColors_LIBRARIES = sparkcolourpicker 
+# Tên biến phải khớp y hệt TWEAK_NAME ở trên
+CC-Color-IOS-15_FILES = Tweak.xm
+CC-Color-IOS-15_CFLAGS = -fobjc-arc
+CC-Color-IOS-15_LIBRARIES = sparkcolourpicker
 
 include $(THEOS_MAKE_PATH)/tweak.mk
 
-# Dòng này để gọi thư mục Menu Cài đặt (chúng ta sẽ tạo ở Bước 2)
 SUBPROJECTS += ccslidercolorsprefs
 include $(THEOS_MAKE_PATH)/aggregate.mk

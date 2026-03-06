@@ -25,14 +25,14 @@ jobs:
         run: |
           git clone https://github.com/theos/sdks.git temp_sdks
           mv temp_sdks/*.sdk theos/sdks/
-
-      - name: Tải thư viện libsparkcolourpicker cho máy chủ
+- name: Tải thư viện libsparkcolourpicker cho máy chủ
         run: |
           mkdir -p theos/include/SparkColourPicker
-          git clone https://github.com/SparkDev97/libsparkcolourpicker.git temp_spark
-          cp temp_spark/*.h theos/include/SparkColourPicker/
-          # Tạo file thư viện ảo để máy chủ không báo lỗi khi build
-          touch theos/lib/libsparkcolourpicker.dylib 
+          git clone https://github.com/SparkDev97/libSparkColourPicker.git temp_spark
+          # Dùng lệnh find để lục tìm và copy mọi file .h dù nó giấu ở thư mục nào
+          find temp_spark -name "*.h" -exec cp {} theos/include/SparkColourPicker/ \;
+          # Tải file khung .tbd chuẩn của Theos để hệ thống linker không bị báo lỗi
+          curl -sL https://raw.githubusercontent.com/theos/lib/master/libsparkcolourpicker.tbd -o theos/lib/libsparkcolourpicker.tbd
 
       - name: Build thành file .deb
         run: |

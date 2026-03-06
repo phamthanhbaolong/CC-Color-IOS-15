@@ -6,7 +6,7 @@ INSTALL_TARGET_PROCESSES = SpringBoard
 
 include $(THEOS)/makefiles/common.mk
 
-TWEAK_NAME = CCSliderColors
+TWEAK_NAME = CC-Color-IOS-15.plist
 
 CCSliderColors_FILES = Tweak.xm
 CCSliderColors_CFLAGS = -fobjc-arc
